@@ -31,7 +31,7 @@ RUN set -ex; \
                    zbar-tools; \
       \
       # clone jd seckill code.
-      git clone -b $GIT_BRANCH https://github.com/huanghyw/jd_seckill.git /app; \
+      git clone -b $GIT_BRANCH https://github.com/rystudy/jd_seckill_docker.git /app; \
       cd /app \
         && rm -rf .git; \
       \
