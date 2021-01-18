@@ -382,7 +382,6 @@ class JdSeckill(object):
         resp = self.session.get(url=url, params=payload, headers=headers)
         resp_json = parse_json(resp.text)
         reserve_url = resp_json.get('url')
-        self.timers.start()
         while True:
             try:
                 self.session.get(url='https:' + reserve_url)
@@ -393,6 +392,7 @@ class JdSeckill(object):
                 break
             except Exception as e:
                 logger.error('预约失败正在重试...')
+        self.timers.start()
 
     def get_username(self):
         """获取用户信息"""

@@ -1,6 +1,6 @@
 FROM python:3.8-slim-buster
 
-LABEL MAINTAINER="@weidonggg"
+LABEL MAINTAINER="@rystudy"
 
 ENV GIT_BRANCH master
 ENV TIMEZONE Asia/Shanghai
@@ -37,14 +37,14 @@ RUN set -ex; \
       \
        \
         \
-      pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/; \
+      pip3 install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/; \
       \
       chmod +x /usr/local/bin/docker-python-entrypoint; \
       chmod +x /usr/local/bin/jd-seckill; \
       \
       # clean apt cache.
-      apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
-      rm -rf /var/lib/apt/lists/*
+    #  apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false; \
+    #  rm -rf /var/lib/apt/lists/*
 
 
 WORKDIR /app
